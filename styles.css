@@ -498,6 +498,7 @@ body {
   z-index: 1;
   font-family: var(--font-serif);
   font-weight: 700;
+  color: #454545;
 }
 
 .why-egg .section-lead {

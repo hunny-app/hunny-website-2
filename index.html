@@ -496,11 +496,32 @@
                 <span class="contact-card__value">@hunny.family</span>
               </a>
             </li>
-            <li>
-              <a class="contact-card contact-card--email" href="mailto:hunny.app.official@gmail.com">
+            <li
+              class="contact-card-email-wrap"
+              data-contact-email="hunny.app.official@gmail.com"
+            >
+              <button
+                type="button"
+                class="contact-card contact-card--email js-email-card-toggle"
+                aria-expanded="false"
+                aria-controls="email-copy-panel"
+                id="email-card-toggle"
+              >
                 <span class="contact-card__label">Email</span>
                 <span class="contact-card__value">hunny.app.official@gmail.com</span>
-              </a>
+              </button>
+              <div
+                id="email-copy-panel"
+                class="email-copy-bar"
+                role="region"
+                aria-labelledby="email-card-toggle"
+                hidden
+              >
+                <span class="email-copy-bar__addr">hunny.app.official@gmail.com</span>
+                <button type="button" class="email-copy-bar__copy js-copy-email-btn">
+                  Copy
+                </button>
+              </div>
             </li>
           </ul>
         </div>

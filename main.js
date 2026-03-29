@@ -66,4 +66,77 @@
     }
     openComingSoonFromHash();
   }
+
+  var emailWrap = document.querySelector(".contact-card-email-wrap");
+  if (emailWrap) {
+    var emailToggle = emailWrap.querySelector(".js-email-card-toggle");
+    var emailBar = emailWrap.querySelector(".email-copy-bar");
+    var copyEmailBtn = emailWrap.querySelector(".js-copy-email-btn");
+    var contactEmail = (emailWrap.getAttribute("data-contact-email") || "").trim();
+
+    function setEmailBarOpen(open) {
+      if (!emailToggle || !emailBar) return;
+      emailToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) emailBar.removeAttribute("hidden");
+      else emailBar.setAttribute("hidden", "");
+    }
+
+    if (emailToggle && emailBar) {
+      emailToggle.addEventListener("click", function () {
+        var open = emailToggle.getAttribute("aria-expanded") === "true";
+        setEmailBarOpen(!open);
+      });
+    }
+
+    function copyEmailToClipboard(done) {
+      if (!contactEmail) {
+        if (done) done(false);
+        return;
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(contactEmail).then(
+          function () {
+            if (done) done(true);
+          },
+          function () {
+            legacyCopy();
+          }
+        );
+        return;
+      }
+      legacyCopy();
+
+      function legacyCopy() {
+        try {
+          var ta = document.createElement("textarea");
+          ta.value = contactEmail;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "fixed";
+          ta.style.left = "-9999px";
+          document.body.appendChild(ta);
+          ta.select();
+          var ok = document.execCommand("copy");
+          document.body.removeChild(ta);
+          if (done) done(ok);
+        } catch (e) {
+          if (done) done(false);
+        }
+      }
+    }
+
+    if (copyEmailBtn && contactEmail) {
+      var defaultCopyLabel = copyEmailBtn.textContent.trim();
+      copyEmailBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        copyEmailToClipboard(function (ok) {
+          copyEmailBtn.textContent = ok ? "Copied!" : "Copy";
+          if (ok) {
+            window.setTimeout(function () {
+              copyEmailBtn.textContent = defaultCopyLabel;
+            }, 2000);
+          }
+        });
+      });
+    }
+  }
 })();

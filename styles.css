@@ -24,6 +24,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 118.75%;
 }
 
 body {
@@ -552,6 +553,11 @@ body {
   font-size: clamp(1.35rem, 3vw, 1.65rem);
   font-weight: 700;
   line-height: 1.25;
+}
+
+.feature-text p {
+  font-size: 1.08rem;
+  line-height: 1.65;
 }
 
 .feature-card--gold .feature-text h3 {

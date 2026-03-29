@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join the waitlist — Hunny</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <header class="site-header" id="top">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="Hunny home">
+          <img
+            class="brand-logo"
+            src="Assets/Hunny%20Logo%20Color.png"
+            alt="Hunny"
+            width="176"
+            height="48"
+            decoding="async"
+          />
+        </a>
+        <nav class="nav-main" aria-label="Primary">
+          <ul class="nav-main__list">
+            <li><a href="index.html#top">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact us</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="waitlist.html" aria-current="page">Waitlist</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <span class="ph-badge" title="Community favorite">
+            <span class="ph-icon" aria-hidden="true">🏅</span>
+            Loved by early users
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-sub">
+      <section class="blog-hero reveal-on-scroll" aria-labelledby="waitlist-heading">
+        <p class="blog-hero-kicker">Early access</p>
+        <h1 id="waitlist-heading" class="blog-hero-title">Join the waitlist</h1>
+        <p class="blog-hero-lead">
+          Get early access and Hunny updates. Add your email below — we only use it for Hunny-related
+          news.
+        </p>
+      </section>
+
+      <div class="waitlist-page-panel-wrap">
+        <div class="waitlist-page-panel reveal-on-scroll">
+          <div class="waitlist-block" id="waitlist">
+            <form id="waitlistForm" class="waitlist-form" name="waitlist" novalidate>
+              <div class="waitlist-field">
+                <label class="waitlist-label" for="waitlistEmail">Email</label>
+                <input
+                  id="waitlistEmail"
+                  class="waitlist-input"
+                  type="email"
+                  name="email"
+                  autocomplete="email"
+                  inputmode="email"
+                  required
+                  placeholder="you@example.com"
+                />
+              </div>
+              <div class="waitlist-field">
+                <label class="waitlist-label" for="waitlistName"
+                  >Name <span class="waitlist-optional">(optional)</span></label
+                >
+                <input
+                  id="waitlistName"
+                  class="waitlist-input"
+                  type="text"
+                  name="name"
+                  autocomplete="name"
+                  maxlength="120"
+                  placeholder="How we should address you"
+                />
+              </div>
+              <div class="waitlist-hp" aria-hidden="true">
+                <label class="waitlist-hp-label" for="waitlistHp">Leave blank</label>
+                <input
+                  id="waitlistHp"
+                  name="wl_hp_confirm"
+                  type="text"
+                  tabindex="-1"
+                  autocomplete="off"
+                  value=""
+                />
+              </div>
+              <button id="waitlistSubmit" class="waitlist-submit" type="submit">
+                Join the waitlist
+              </button>
+              <p
+                id="waitlistStatus"
+                class="waitlist-status"
+                role="status"
+                aria-live="polite"
+                hidden
+              ></p>
+              <p class="waitlist-privacy">
+                We store signups in a secure database and only use your email for Hunny-related
+                updates. We don&apos;t sell addresses.
+              </p>
+            </form>
+          </div>
+        </div>
+        <p class="waitlist-page-back">
+          <a class="waitlist-page-back-link" href="index.html">← Back to home</a>
+        </p>
+      </div>
+
+      <footer class="site-footer reveal-on-scroll">
+        <div class="footer-row">
+          <div class="footer-col">
+            <strong>Company</strong>
+            <a href="index.html#about">About</a>
+            <a href="index.html#careers">Careers</a>
+          </div>
+          <div class="footer-col footer-col--center">
+            <a href="blog.html">Browse the blog</a>
+          </div>
+          <div class="footer-col footer-col--end">
+            <strong>Resources</strong>
+            <a href="index.html#docs">Docs</a>
+            <a href="faq.html">FAQ</a>
+            <a href="waitlist.html">Waitlist</a>
+          </div>
+        </div>
+        <div class="footer-brand-strip">
+          <img
+            class="footer-logo"
+            src="Assets/Hunny%20Logo%20White.png"
+            alt=""
+            width="120"
+            height="32"
+            decoding="async"
+          />
+          <p class="footer-note">
+            © <span id="year"></span> Hunny. Sweet intelligence, built for you.
+          </p>
+        </div>
+      </footer>
+    </main>
+
+    <script src="main.js" defer></script>
+    <script src="waitlist-config.js" defer></script>
+    <script src="waitlist.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog — Hunny</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <header class="site-header" id="top">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="Hunny home">
+          <img
+            class="brand-logo"
+            src="Assets/Hunny%20Logo%20Color.png"
+            alt="Hunny"
+            width="176"
+            height="48"
+            decoding="async"
+          />
+        </a>
+        <nav class="nav-main" aria-label="Primary">
+          <ul class="nav-main__list">
+            <li><a href="index.html#top">Home</a></li>
+            <li><a href="blog.html" aria-current="page">Blog</a></li>
+            <li><a href="index.html#contact">Contact us</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="waitlist.html">Waitlist</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <span class="ph-badge" title="Community favorite">
+            <span class="ph-icon" aria-hidden="true">🏅</span>
+            Loved by early users
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-sub">
+      <section class="blog-hero reveal-on-scroll" aria-labelledby="blog-heading">
+        <p class="blog-hero-kicker">Technical &amp; product notes</p>
+        <h1 id="blog-heading" class="blog-hero-title">Hunny blog</h1>
+        <p class="blog-hero-lead">
+          Research highlights, caregiving context, and how we think about family-centered AI — aligned
+          with what you see on our homepage.
+        </p>
+      </section>
+
+      <div class="blog-index">
+        <nav class="blog-toc reveal-on-scroll" aria-label="On this page">
+          <h2 class="blog-toc-title">Posts</h2>
+          <ol class="blog-toc-list">
+            <li><a href="#post-beta">Beta launched on April 1st</a></li>
+            <li><a href="#post-signals">Signals, not surveillance</a></li>
+            <li><a href="#post-care">Why the caregiver market matters</a></li>
+            <li><a href="#post-team">The team behind Hunny</a></li>
+          </ol>
+        </nav>
+
+        <div class="blog-articles">
+          <article class="blog-post reveal-on-scroll" id="post-beta">
+            <header class="blog-post-head">
+              <p class="blog-post-meta"><time datetime="2026-04-01">April 1, 2026</time> · Product</p>
+              <h2 class="blog-post-title">Beta launched on April 1st</h2>
+            </header>
+            <div class="blog-post-body">
+              <p>
+                We&rsquo;re opening Hunny to a small group of beta testers. If you&rsquo;re a caregiver or
+                part of a family circle that wants calmer check-ins and clearer signals — not more
+                dashboards — we&rsquo;d love your feedback on the real product.
+              </p>
+              <p>
+                We&rsquo;re starting to onboard testers in waves so we can listen closely, fix what breaks,
+                and tune how Hunny shows up in daily life. Spots are limited while we stabilize core flows.
+              </p>
+              <p>
+                <a href="index.html#app">Get the app</a> or <a href="index.html#contact">contact us</a> if
+                you&rsquo;d like to join the beta.
+              </p>
+            </div>
+          </article>
+
+          <article class="blog-post reveal-on-scroll reveal-on-scroll--d1" id="post-signals">
+            <header class="blog-post-head">
+              <p class="blog-post-meta"><time datetime="2026-02-14">February 14, 2026</time> · Product</p>
+              <h2 class="blog-post-title">Signals, not surveillance</h2>
+            </header>
+            <div class="blog-post-body">
+              <p>
+                Hunny is built around one question families ask: <strong>&ldquo;Should I be worried
+                today?&rdquo;</strong> We deliberately avoid cameras, constant location tracking, and
+                diagnostic claims. The product summarizes patterns from conversation — mood, routine,
+                engagement — and surfaces alerts only when something meaningfully shifts.
+              </p>
+              <p>
+                When nothing is off, you should see calm reassurance: everything looks normal. That design
+                choice is as much ethics as UX: peace of mind without turning a loved one into a dashboard
+                tile.
+              </p>
+              <p>
+                <a href="faq.html">Read the full FAQ</a> for privacy and trust questions.
+              </p>
+            </div>
+          </article>
+
+          <article class="blog-post reveal-on-scroll reveal-on-scroll--d2" id="post-care">
+            <header class="blog-post-head">
+              <p class="blog-post-meta"><time datetime="2026-02-01">February 1, 2026</time> · Context</p>
+              <h2 class="blog-post-title">Why the caregiver market matters</h2>
+            </header>
+            <div class="blog-post-body">
+              <p>
+                Tens of millions of people in North America provide care across aging, children,
+                neurodivergence, and mental health. Many are digitally active but still piece together
+                texts, notes, and apps — a fragmented stack that increases guilt and uncertainty.
+              </p>
+              <p>
+                Hunny&rsquo;s bet is that a single, conversation-first companion can reduce that friction
+                while respecting dignity: fewer pings, clearer shared context for the whole care circle,
+                and early <em>signals</em> instead of late crises.
+              </p>
+              <p>
+                <a class="btn btn-gradient" href="index.html#top">Back to home</a>
+              </p>
+            </div>
+          </article>
+
+          <article class="blog-post" id="post-team">
+            <header class="blog-post-head">
+              <p class="blog-post-meta"><time datetime="2026-01-15">January 15, 2026</time> · Team</p>
+              <h2 class="blog-post-title">The team behind Hunny</h2>
+            </header>
+            <div class="blog-post-body">
+              <p>
+                We&rsquo;re a group of students and graduate students from the University of Toronto and
+                OCAD University, with backgrounds in psychology, UI/UX, design, and computer science.
+              </p>
+              <p>
+                <strong>Renee Ng</strong> — <em>Product and Vision.</em> UX, psychology, and AI behaviour
+                design. Concept owner, user research, and product direction. UofT Information,
+                Queen&rsquo;s Psychology, OCAD U Art.
+              </p>
+              <p>
+                <strong>Jason Fung</strong> — <em>Business Execution.</em> Pitching, fundraising &amp;
+                partnerships; business operations, go-to-market, community &amp; partnerships. OCAD U
+                Digital Future.
+              </p>
+              <p>
+                <strong>Jason Chao</strong> — <em>Engineering &amp; Systems.</em> Backend/API, infra &amp;
+                deployment prototypes — fast iteration for our MVP and feature experiments. UofT Computer
+                Science.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <footer class="site-footer reveal-on-scroll" id="contact">
+        <div class="footer-row">
+          <div class="footer-col">
+            <strong>Company</strong>
+            <a href="index.html#about">About</a>
+            <a href="index.html#careers">Careers</a>
+          </div>
+          <div class="footer-col footer-col--center">
+            <a href="blog.html#top">Top of blog</a>
+          </div>
+          <div class="footer-col footer-col--end">
+            <strong>Resources</strong>
+            <a href="index.html#docs">Docs</a>
+            <a href="faq.html">FAQ</a>
+            <a href="waitlist.html">Waitlist</a>
+          </div>
+        </div>
+        <div class="footer-brand-strip">
+          <img
+            class="footer-logo"
+            src="Assets/Hunny%20Logo%20White.png"
+            alt=""
+            width="120"
+            height="32"
+            decoding="async"
+          />
+          <p class="footer-note">
+            © <span id="year"></span> Hunny. Sweet intelligence, built for you.
+          </p>
+        </div>
+      </footer>
+    </main>
+
+    <script src="main.js" defer></script>
+  </body>
+</html>

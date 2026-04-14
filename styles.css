@@ -526,34 +526,15 @@ h3,
     margin-right: auto;
   }
 
+  /* Mascot column: hidden on small viewports (same breakpoint as stacked hero) */
   .hero-visual {
-    justify-self: center;
-    width: min(100%, 30rem);
+    display: none;
   }
 }
 
 @media (max-width: 560px) {
   .hero {
     padding-top: 2rem;
-  }
-
-  .hero-visual {
-    min-height: 320px;
-  }
-
-  .hero-visual::before {
-    inset: 18% 3% 8% 6%;
-    border-radius: 28px;
-  }
-
-  .hero-mascot--primary {
-    width: min(68vw, 280px);
-  }
-
-  .hero-mascot--secondary {
-    bottom: 0.85rem;
-    width: min(42vw, 180px);
-    border-radius: 22px;
   }
 }
 

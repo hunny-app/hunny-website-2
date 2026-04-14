@@ -31,9 +31,7 @@
         <nav class="nav-main" aria-label="Primary">
           <ul class="nav-main__list">
             <li><a href="#top" aria-current="page">Home</a></li>
-            <li><a href="blog.html">Blog</a></li>
             <li><a href="#contact">Contact us</a></li>
-            <li><a href="faq.html">FAQ</a></li>
             <li><a href="waitlist.html">Waitlist</a></li>
           </ul>
         </nav>
@@ -48,61 +46,60 @@
 
     <main>
       <section class="hero">
-        <div class="hero-mascot hero-mascot--left" aria-hidden="true">
-          <img
-            class="hero-bunny"
-            src="Assets/bunny%20wave.png"
-            alt=""
-            width="318"
-            height="469"
-            decoding="async"
-          />
-        </div>
-        <div class="hero-mascot hero-mascot--right" aria-hidden="true">
-          <img
-            class="hero-bunny"
-            src="Assets/bunny%20sit.png"
-            alt=""
-            width="319"
-            height="462"
-            decoding="async"
-          />
-        </div>
-        <div class="hero-content">
-          <h1 class="hero-title">
-            <img
-              class="hero-logo"
-              src="Assets/Hunny%20Logo%20Color.png"
-              alt="Hunny"
-              width="720"
-              height="216"
-              decoding="async"
-            />
-          </h1>
-          <p class="hero-tagline">World’s first AI family safety companion</p>
-          <div class="hero-cta">
-            <span class="spark spark--left" aria-hidden="true"></span>
-            <a class="btn btn-primary js-coming-soon" href="#waitlist">Get the app</a>
-            <a class="btn btn-secondary js-coming-soon" href="#waitlist">Try now</a>
-            <span class="spark spark--right" aria-hidden="true"></span>
+        <div class="hero-inner">
+          <div class="hero-content" aria-labelledby="hero-heading">
+            <h1 id="hero-heading" class="hero-heading">
+              Stronger Bonds Start with Better Questions
+            </h1>
+            <p class="hero-description">
+              Hunny chats with your child through playful conversations, then gives parents simple
+              insights and thoughtful follow-up questions—so connection feels easier, even on busy
+              days.
+            </p>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-mascot hero-mascot--secondary">
+              <img
+                class="hero-bunny"
+                src="Assets/bunny%20sit.png"
+                alt=""
+                width="319"
+                height="462"
+                decoding="async"
+              />
+            </div>
+            <div class="hero-mascot hero-mascot--primary">
+              <img
+                class="hero-bunny"
+                src="Assets/bunny%20wave.png"
+                alt=""
+                width="318"
+                height="469"
+                decoding="async"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       <section class="section why reveal-on-scroll" id="why">
         <div class="why-egg">
-          <h2 class="section-title">Why Hunny</h2>
+          <h2 class="section-title">Get daily updates on how your parents feel and what they’re doing.</h2>
           <p class="section-lead">
-            Other apps juggle multiple tasks — Hunny helps you enjoy family time.
+            Hunny is your personal family companion. A mini version of you stays with your loved ones
+            24/7, picking up on small changes and patterns, and keeping you updated on their mood and
+            daily life.
           </p>
         </div>
       </section>
 
-      <section class="feature-stack">
-        <h3 class="feature-card-title-outside reveal-on-scroll">
+      <section class="home-wallpaper-band" aria-label="Product highlights">
+        <div class="feature-stack">
+        <h3 class="feature-card-title-outside reveal-on-scroll" hidden>
           Get daily updates on how your parents feel and what they’re doing.
         </h3>
-        <article class="feature-card feature-card--gold reveal-on-scroll">
+        <article class="feature-card feature-card--gold reveal-on-scroll" hidden>
           <div class="feature-text">
             <p>
               Hunny is your personal family companion. A <span class="inline-highlight">mini version of
@@ -132,19 +129,21 @@
             />
           </div>
           <div class="feature-text">
-            <h3>Your Hunny is a tiny version of you.</h3>
+            <p class="feature-text__eyebrow">What Hunny Does</p>
+            <h3>A Friend They Love Talking To</h3>
             <p>
-              It learns your loved one’s routines, interests, and emotional patterns — and stays with
-              them every day.
+              Your child chats with a playful companion through stories, questions, games, and everyday
+              conversations. Designed to keep them engaged, comfortable, and excited to share.
             </p>
           </div>
         </article>
 
         <article class="feature-card feature-card--peach reveal-on-scroll reveal-on-scroll--d2">
           <div class="feature-text">
-            <h3>Hunny detects and alerts</h3>
+            <h3>See What Mattered Today</h3>
             <p>
-              Hunny detects subtle changes and patterns and reports them to you if something happens to your family.
+              Get simple summaries of what your child enjoyed, talked about, felt, learned, or cared
+              about—so you can understand their little world at a glance.
             </p>
           </div>
           <div class="feature-visual">
@@ -158,12 +157,17 @@
             <div class="feature-float feature-float--pink" aria-hidden="true"></div>
           </div>
         </article>
+        </div>
       </section>
 
       <div class="divider reveal-on-scroll" role="presentation"></div>
 
       <div class="home-story" id="research">
-        <section class="stakes-block reveal-on-scroll" aria-labelledby="stakes-heading">
+        <section
+          class="stakes-block reveal-on-scroll"
+          aria-labelledby="stakes-heading"
+          hidden
+        >
           <div class="stakes-block__grid">
             <div class="stakes-block__intro">
               <p class="stakes-block__eyebrow">The stakes are real</p>
@@ -205,7 +209,11 @@
           </div>
         </section>
 
-        <section class="what-hunny-block reveal-on-scroll" aria-labelledby="what-hunny-heading">
+        <section
+          class="what-hunny-block reveal-on-scroll"
+          aria-labelledby="what-hunny-heading"
+          hidden
+        >
           <div class="what-hunny-block__top">
             <div class="what-hunny-block__visual">
               <img
@@ -249,6 +257,7 @@
         <section
           class="pitch-card pitch-card--no-brainer reveal-on-scroll"
           aria-labelledby="no-brainer-heading"
+          hidden
         >
           <p class="pitch-eyebrow">No-brainer</p>
           <h2 id="no-brainer-heading" class="pitch-title">This shouldn’t be a hard decision.</h2>
@@ -274,198 +283,59 @@
           </div>
         </section>
 
-        <div class="pitch-split">
-          <section
-            class="pitch-card pitch-card--setup reveal-on-scroll reveal-on-scroll--d1"
-            aria-labelledby="easy-setup-heading"
-          >
-            <p class="pitch-eyebrow pitch-eyebrow--left">Easy setup</p>
-            <h2 id="easy-setup-heading" class="pitch-title pitch-title--left">
-              Takes 2 minutes to set up.
-            </h2>
-            <ol class="pitch-steps">
-              <li>
-                <span class="pitch-steps__num" aria-hidden="true">1</span>
-                <span class="pitch-steps__text">Add your loved one</span>
-              </li>
-              <li>
-                <span class="pitch-steps__num" aria-hidden="true">2</span>
-                <span class="pitch-steps__text">Hunny starts checking in</span>
-              </li>
-              <li>
-                <span class="pitch-steps__num" aria-hidden="true">3</span>
-                <span class="pitch-steps__text">You receive updates</span>
-              </li>
-            </ol>
-            <ul class="pitch-tags">
-              <li class="pitch-tag">No devices</li>
-              <li class="pitch-tag">No installation at their home</li>
-              <li class="pitch-tag">No learning curve</li>
-            </ul>
-          </section>
-
-          <section
-            class="pitch-card pitch-card--trust reveal-on-scroll reveal-on-scroll--d2"
-            aria-labelledby="trust-pitch-heading"
-          >
-            <p class="pitch-eyebrow pitch-eyebrow--left">Trust</p>
-            <h2 id="trust-pitch-heading" class="pitch-title pitch-title--left">
-              Built for trust, not surveillance.
-            </h2>
-            <ul class="pitch-trust-list">
-              <li>
-                <span class="pitch-trust-list__icon" aria-hidden="true">✓</span>
-                No cameras
-              </li>
-              <li>
-                <span class="pitch-trust-list__icon" aria-hidden="true">✓</span>
-                No location tracking
-              </li>
-              <li>
-                <span class="pitch-trust-list__icon" aria-hidden="true">✓</span>
-                No medical diagnosis
-              </li>
-              <li>
-                <span class="pitch-trust-list__icon" aria-hidden="true">✓</span>
-                No constant notifications
-              </li>
-            </ul>
-            <p class="pitch-trust-foot">Just conversations → turned into signals.</p>
-          </section>
-        </div>
+        <section
+          class="pitch-card pitch-card--trust reveal-on-scroll reveal-on-scroll--d2"
+          aria-labelledby="trust-pitch-heading"
+        >
+          <p class="pitch-eyebrow pitch-eyebrow--left">Trust</p>
+          <h2 id="trust-pitch-heading" class="pitch-title pitch-title--left">
+            Built for trust, not surveillance.
+          </h2>
+          <ul class="pitch-trust-list">
+            <li>
+              <span class="pitch-trust-list__icon" aria-hidden="true">✓</span>
+              No cameras
+            </li>
+            <li>
+              <span class="pitch-trust-list__icon" aria-hidden="true">✓</span>
+              No location tracking
+            </li>
+            <li>
+              <span class="pitch-trust-list__icon" aria-hidden="true">✓</span>
+              No medical diagnosis
+            </li>
+            <li>
+              <span class="pitch-trust-list__icon" aria-hidden="true">✓</span>
+              No constant notifications
+            </li>
+          </ul>
+          <p class="pitch-trust-foot">Just conversations → turned into signals.</p>
+        </section>
       </div>
 
-      <section
-        class="care-extras reveal-on-scroll"
-        aria-labelledby="care-extras-heading"
-      >
-        <div class="care-extras__wrap">
-          <div class="care-extras__panel">
-            <header class="care-extras__header">
-              <p class="care-extras__eyebrow">All in one place</p>
-              <h2 id="care-extras-heading" class="care-extras__title">
-                Everything you expect from a care app — included.
-              </h2>
-              <p class="care-extras__lead">
-                Calendar, scheduling, notes, reminders, family-circle sharing, messaging — built in alongside Hunny’s check-ins, so you are not juggling a separate app for each.
-              </p>
-            </header>
-            <ul class="care-extras__grid" aria-label="Included features">
-              <li class="care-extras__cell care-extras__cell--lavender">
-                <span class="care-extras__cell-title">Calendar</span>
-                <span class="care-extras__cell-note">Shared visibility for appointments and routines</span>
-              </li>
-              <li class="care-extras__cell care-extras__cell--lime">
-                <span class="care-extras__cell-title">Scheduling</span>
-                <span class="care-extras__cell-note">Coordinate who does what and when</span>
-              </li>
-              <li class="care-extras__cell care-extras__cell--peach">
-                <span class="care-extras__cell-title">Notes</span>
-                <span class="care-extras__cell-note">Keep context in one shared place</span>
-              </li>
-              <li class="care-extras__cell care-extras__cell--sky">
-                <span class="care-extras__cell-title">Reminders</span>
-                <span class="care-extras__cell-note">Nudges for meds, visits, and follow-ups</span>
-              </li>
-              <li class="care-extras__cell care-extras__cell--cream">
-                <span class="care-extras__cell-title">Family circle sharing</span>
-                <span class="care-extras__cell-note">The right people stay in the loop</span>
-              </li>
-              <li class="care-extras__cell care-extras__cell--mist">
-                <span class="care-extras__cell-title">Messaging</span>
-                <span class="care-extras__cell-note">Simple threads for your household</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
       <section class="stats reveal-on-scroll" aria-labelledby="stats-heading">
-        <h2 id="stats-heading" class="visually-hidden">Caregiving at a glance</h2>
+        <h2 id="stats-heading" class="visually-hidden">Families and connection</h2>
         <div class="stats-grid">
           <div class="stat">
-            <span class="stat-num">90M+</span>
+            <span class="stat-num">Millions</span>
             <span class="stat-label"
-              >caregivers in north america (elderly, children, neurodivergent, mental health)</span>
+              >Of children grow up with parents who deeply care—but have limited time.</span>
           </div>
           <div class="stat">
-            <span class="stat-num">11M</span>
-            <span class="stat-label">Digitally active caregivers</span>
+            <span class="stat-num">91.4%</span>
+            <span class="stat-label">Of families with children rely on working parents</span>
+            <p class="stat-note">
+              Time is precious. Meaningful connection matters more than ever.
+            </p>
           </div>
           <div class="stat">
-            <span class="stat-num">1/4</span>
-            <span class="stat-label">seniors are facing loneliness</span>
+            <span class="stat-num">1 Question</span>
+            <span class="stat-label">Can change a child’s whole day</span>
+            <p class="stat-note">Hunny helps parents ask better ones.</p>
           </div>
         </div>
         <div class="stats-cta">
-          <a class="btn btn-gradient" href="#waitlist">Join the waitlist</a>
-        </div>
-      </section>
-
-      <section class="waitlist-section reveal-on-scroll" id="waitlist" aria-labelledby="waitlist-heading">
-        <div class="waitlist-section__inner">
-          <p class="contact-section__eyebrow">Early access</p>
-          <h2 id="waitlist-heading" class="contact-section__title">Join the waitlist</h2>
-          <p class="contact-section__lead">
-            Be first to hear about launches, beta invites, and product updates — same form as our
-            <a href="waitlist.html">dedicated waitlist page</a> if you prefer a focused view.
-          </p>
-          <div class="waitlist-block">
-            <form id="waitlistForm" class="waitlist-form" name="waitlist" novalidate>
-              <div class="waitlist-field">
-                <label class="waitlist-label" for="waitlistEmail">Email</label>
-                <input
-                  id="waitlistEmail"
-                  class="waitlist-input"
-                  type="email"
-                  name="email"
-                  autocomplete="email"
-                  inputmode="email"
-                  required
-                  placeholder="you@example.com"
-                />
-              </div>
-              <div class="waitlist-field">
-                <label class="waitlist-label" for="waitlistName"
-                  >Name <span class="waitlist-optional">(optional)</span></label
-                >
-                <input
-                  id="waitlistName"
-                  class="waitlist-input"
-                  type="text"
-                  name="name"
-                  autocomplete="name"
-                  maxlength="120"
-                  placeholder="How we should address you"
-                />
-              </div>
-              <div class="waitlist-hp" aria-hidden="true">
-                <label class="waitlist-hp-label" for="waitlistHp">Leave blank</label>
-                <input
-                  id="waitlistHp"
-                  name="wl_hp_confirm"
-                  type="text"
-                  tabindex="-1"
-                  autocomplete="off"
-                  value=""
-                />
-              </div>
-              <button id="waitlistSubmit" class="waitlist-submit" type="submit">
-                Join the waitlist
-              </button>
-              <p
-                id="waitlistStatus"
-                class="waitlist-status"
-                role="status"
-                aria-live="polite"
-                hidden
-              ></p>
-              <p class="waitlist-privacy">
-                We store signups in a secure database and only use your email for Hunny-related
-                updates. We don&apos;t sell addresses.
-              </p>
-            </form>
-          </div>
+          <a class="btn btn-waitlist-plain" href="waitlist.html">Join the waitlist</a>
         </div>
       </section>
 
@@ -531,19 +401,15 @@
       </section>
 
       <footer class="site-footer reveal-on-scroll">
-        <div class="footer-row">
+        <div class="footer-row footer-row--two-col">
           <div class="footer-col">
             <strong>Company</strong>
             <a href="#about">About</a>
             <a href="#careers">Careers</a>
           </div>
-          <div class="footer-col footer-col--center">
-            <a href="blog.html">Browse the blog</a>
-          </div>
           <div class="footer-col footer-col--end">
             <strong>Resources</strong>
             <a href="#docs">Docs</a>
-            <a href="faq.html">FAQ</a>
             <a href="waitlist.html">Waitlist</a>
           </div>
         </div>
@@ -562,23 +428,6 @@
         </div>
       </footer>
     </main>
-
-    <dialog
-      id="comingSoonDialog"
-      class="coming-soon-dialog"
-      aria-labelledby="comingSoonTitle"
-    >
-      <div class="coming-soon-dialog__inner">
-        <h2 id="comingSoonTitle" class="coming-soon-dialog__title">Coming soon</h2>
-        <p class="coming-soon-dialog__body">
-          The app isn&rsquo;t available to download or try just yet. We&rsquo;ll let you know when
-          it&rsquo;s ready.
-        </p>
-        <div class="coming-soon-dialog__actions">
-          <button type="button" class="btn btn-muted js-close-coming-soon">Not now</button>
-        </div>
-      </div>
-    </dialog>
 
     <script src="main.js" defer></script>
     <script src="waitlist-config.js" defer></script>

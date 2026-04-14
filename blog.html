@@ -3,16 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="refresh" content="0; url=index.html" />
     <title>Blog — Hunny</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&family=Quicksand:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Kanit:wght@700&family=Plus+Jakarta+Sans:wght@500;600;700&family=Quicksand:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <script>
+      window.location.replace("index.html");
+    </script>
     <script>
       document.documentElement.classList.add("js");
     </script>
@@ -31,9 +36,7 @@
         <nav class="nav-main" aria-label="Primary">
           <ul class="nav-main__list">
             <li><a href="index.html#top">Home</a></li>
-            <li><a href="blog.html" aria-current="page">Blog</a></li>
             <li><a href="index.html#contact">Contact us</a></li>
-            <li><a href="faq.html">FAQ</a></li>
             <li><a href="waitlist.html">Waitlist</a></li>
           </ul>
         </nav>
@@ -107,9 +110,6 @@
                 choice is as much ethics as UX: peace of mind without turning a loved one into a dashboard
                 tile.
               </p>
-              <p>
-                <a href="faq.html">Read the full FAQ</a> for privacy and trust questions.
-              </p>
             </div>
           </article>
 
@@ -166,19 +166,15 @@
       </div>
 
       <footer class="site-footer reveal-on-scroll" id="contact">
-        <div class="footer-row">
+        <div class="footer-row footer-row--two-col">
           <div class="footer-col">
             <strong>Company</strong>
             <a href="index.html#about">About</a>
             <a href="index.html#careers">Careers</a>
           </div>
-          <div class="footer-col footer-col--center">
-            <a href="blog.html#top">Top of blog</a>
-          </div>
           <div class="footer-col footer-col--end">
             <strong>Resources</strong>
             <a href="index.html#docs">Docs</a>
-            <a href="faq.html">FAQ</a>
             <a href="waitlist.html">Waitlist</a>
           </div>
         </div>

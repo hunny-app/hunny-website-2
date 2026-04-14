@@ -34,39 +34,6 @@
     });
   }
 
-  var comingSoonDialog = document.getElementById("comingSoonDialog");
-  var comingSoonTriggers = document.querySelectorAll("a.js-coming-soon");
-  if (comingSoonDialog && comingSoonDialog.showModal) {
-    comingSoonTriggers.forEach(function (a) {
-      a.addEventListener("click", function (e) {
-        e.preventDefault();
-        comingSoonDialog.showModal();
-      });
-    });
-
-    var closeComingSoonBtns = comingSoonDialog.querySelectorAll(".js-close-coming-soon");
-    closeComingSoonBtns.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        comingSoonDialog.close();
-      });
-    });
-
-    comingSoonDialog.addEventListener("click", function (e) {
-      if (e.target === comingSoonDialog) comingSoonDialog.close();
-    });
-
-    function openComingSoonFromHash() {
-      var h = (location.hash || "").replace(/^#/, "");
-      if (h === "app" || h === "try" || h === "coming-soon") {
-        comingSoonDialog.showModal();
-        if (history.replaceState) {
-          history.replaceState(null, "", location.pathname + location.search);
-        }
-      }
-    }
-    openComingSoonFromHash();
-  }
-
   var emailWrap = document.querySelector(".contact-card-email-wrap");
   if (emailWrap) {
     var emailToggle = emailWrap.querySelector(".js-email-card-toggle");

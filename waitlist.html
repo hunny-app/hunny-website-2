@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Join the waitlist — Hunny</title>
+    <title data-i18n="meta.waitlistTitle">Join the waitlist — Hunny</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Kanit:wght@700&family=Plus+Jakarta+Sans:wght@500;600;700&family=Quicksand:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito+Sans:wght@625..835&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -18,27 +18,73 @@
     </script>
     <header class="site-header" id="top">
       <div class="header-inner">
-        <a class="brand" href="index.html" aria-label="Hunny home">
+        <a class="brand" href="index.html" aria-label="Hunny home" data-i18n-attr="aria-label:brand.home">
           <img
             class="brand-logo"
-            src="Assets/Hunny%20Logo%20Color.png"
+            src="Assets/hunny-logo-color-header.png"
             alt="Hunny"
-            width="176"
-            height="48"
+            width="733"
+            height="406"
             decoding="async"
           />
         </a>
-        <nav class="nav-main" aria-label="Primary">
+        <button
+          type="button"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Open navigation menu"
+          data-nav-toggle
+          data-i18n-attr="aria-label:nav.openMenu"
+        >
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+        </button>
+        <nav id="site-nav" class="nav-main" aria-label="Primary" data-i18n-attr="aria-label:nav.primary">
+          <div class="nav-main__mobile-head">
+            <button
+              type="button"
+              class="nav-main__close"
+              aria-label="Close navigation menu"
+              data-nav-close
+              data-i18n-attr="aria-label:nav.closeMenu"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
           <ul class="nav-main__list">
-            <li><a href="index.html#top">Home</a></li>
-            <li><a href="index.html#contact">Contact us</a></li>
-            <li><a href="waitlist.html" aria-current="page">Waitlist</a></li>
+            <li><a href="index.html#top" data-i18n="nav.home">Home</a></li>
+            <li><a href="index.html#contact" data-i18n="nav.contact">Contact us</a></li>
+            <li><a href="waitlist.html" aria-current="page" data-i18n="nav.waitlist">Waitlist</a></li>
           </ul>
         </nav>
+        <button
+          type="button"
+          class="nav-overlay"
+          aria-hidden="true"
+          tabindex="-1"
+          data-nav-overlay
+        ></button>
         <div class="header-actions">
-          <span class="ph-badge" title="Community favorite">
+          <button
+            type="button"
+            class="language-switch"
+            role="switch"
+            aria-checked="false"
+            aria-label="Language"
+            data-lang-toggle
+            data-i18n-attr="aria-label:language.label"
+          >
+            <span class="language-switch__option language-switch__option--en">EN</span>
+            <span class="language-switch__track" aria-hidden="true">
+              <span class="language-switch__thumb"></span>
+            </span>
+            <span class="language-switch__option language-switch__option--zh">繁中</span>
+          </button>
+          <span class="ph-badge" title="Community favorite" data-i18n-attr="title:badge.title">
             <span class="ph-icon" aria-hidden="true">🏅</span>
-            Loved by early users
+            <span data-i18n="badge.loved">Loved by early users</span>
           </span>
         </div>
       </div>
@@ -46,9 +92,9 @@
 
     <main class="page-sub">
       <section class="blog-hero reveal-on-scroll" aria-labelledby="waitlist-heading">
-        <p class="blog-hero-kicker">Early access</p>
-        <h1 id="waitlist-heading" class="blog-hero-title">Join the waitlist</h1>
-        <p class="blog-hero-lead">
+        <p class="blog-hero-kicker" data-i18n="waitlist.kicker">Early access</p>
+        <h1 id="waitlist-heading" class="blog-hero-title" data-i18n="waitlist.title">Join the waitlist</h1>
+        <p class="blog-hero-lead" data-i18n="waitlist.lead">
           Get early access and Hunny updates. Add your email below — we only use it for Hunny-related
           news.
         </p>
@@ -59,7 +105,7 @@
           <div class="waitlist-block" id="waitlist">
             <form id="waitlistForm" class="waitlist-form" name="waitlist" novalidate>
               <div class="waitlist-field">
-                <label class="waitlist-label" for="waitlistEmail">Email</label>
+                <label class="waitlist-label" for="waitlistEmail" data-i18n="contact.email">Email</label>
                 <input
                   id="waitlistEmail"
                   class="waitlist-input"
@@ -69,11 +115,13 @@
                   inputmode="email"
                   required
                   placeholder="you@example.com"
+                  data-i18n-attr="placeholder:waitlist.emailPlaceholder"
                 />
               </div>
               <div class="waitlist-field">
                 <label class="waitlist-label" for="waitlistName"
-                  >Name <span class="waitlist-optional">(optional)</span></label
+                  ><span data-i18n="waitlist.name">Name</span>
+                  <span class="waitlist-optional" data-i18n="waitlist.optional">(optional)</span></label
                 >
                 <input
                   id="waitlistName"
@@ -83,10 +131,11 @@
                   autocomplete="name"
                   maxlength="120"
                   placeholder="How we should address you"
+                  data-i18n-attr="placeholder:waitlist.namePlaceholder"
                 />
               </div>
               <div class="waitlist-hp" aria-hidden="true">
-                <label class="waitlist-hp-label" for="waitlistHp">Leave blank</label>
+                <label class="waitlist-hp-label" for="waitlistHp" data-i18n="waitlist.leaveBlank">Leave blank</label>
                 <input
                   id="waitlistHp"
                   name="wl_hp_confirm"
@@ -97,7 +146,7 @@
                 />
               </div>
               <button id="waitlistSubmit" class="waitlist-submit" type="submit">
-                Join the waitlist
+                <span data-i18n="waitlist.submit">Join the waitlist</span>
               </button>
               <p
                 id="waitlistStatus"
@@ -106,7 +155,7 @@
                 aria-live="polite"
                 hidden
               ></p>
-              <p class="waitlist-privacy">
+              <p class="waitlist-privacy" data-i18n="waitlist.privacy">
                 We store signups in a secure database and only use your email for Hunny-related
                 updates. We don&apos;t sell addresses.
               </p>
@@ -114,34 +163,34 @@
           </div>
         </div>
         <p class="waitlist-page-back">
-          <a class="waitlist-page-back-link" href="index.html">← Back to home</a>
+          <a class="waitlist-page-back-link" href="index.html" data-i18n="waitlist.back">← Back to home</a>
         </p>
       </div>
 
       <footer class="site-footer reveal-on-scroll">
         <div class="footer-row footer-row--two-col">
           <div class="footer-col">
-            <strong>Company</strong>
-            <a href="index.html#about">About</a>
-            <a href="index.html#careers">Careers</a>
+            <strong data-i18n="footer.company">Company</strong>
+            <a href="index.html#about" data-i18n="footer.about">About</a>
+            <a href="index.html#careers" data-i18n="footer.careers">Careers</a>
           </div>
           <div class="footer-col footer-col--end">
-            <strong>Resources</strong>
-            <a href="index.html#docs">Docs</a>
-            <a href="waitlist.html">Waitlist</a>
+            <strong data-i18n="footer.resources">Resources</strong>
+            <a href="index.html#docs" data-i18n="footer.docs">Docs</a>
+            <a href="waitlist.html" data-i18n="nav.waitlist">Waitlist</a>
           </div>
         </div>
         <div class="footer-brand-strip">
           <img
             class="footer-logo"
-            src="Assets/Hunny%20Logo%20White.png"
+            src="Assets/hunny-logo-color-header.png"
             alt=""
-            width="120"
-            height="32"
+            width="733"
+            height="406"
             decoding="async"
           />
           <p class="footer-note">
-            © <span id="year"></span> Hunny. Sweet intelligence, built for you.
+            © <span id="year"></span> <span data-i18n="footer.tagline">Hunny. Sweet intelligence, built for you.</span>
           </p>
         </div>
       </footer>

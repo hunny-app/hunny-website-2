@@ -9,9 +9,15 @@
   const hpInput = document.getElementById("waitlistHp");
   const submitBtn = document.getElementById("waitlistSubmit");
   const statusEl = document.getElementById("waitlistStatus");
+  let activeStatusKey = "";
+  let activeStatusIsError = false;
 
   if (hpInput) {
     hpInput.value = "";
+  }
+
+  function t(key, fallback) {
+    return window.HunnyI18n && window.HunnyI18n.t ? window.HunnyI18n.t(key) || fallback : fallback;
   }
 
   function setStatus(message, isError) {
@@ -23,6 +29,24 @@
     statusEl.hidden = !message;
   }
 
+  function setStatusKey(key, isError) {
+    activeStatusKey = key;
+    activeStatusIsError = Boolean(isError);
+    setStatus(t(key, ""), isError);
+  }
+
+  function clearStatus() {
+    activeStatusKey = "";
+    activeStatusIsError = false;
+    setStatus("", false);
+  }
+
+  window.addEventListener("hunny:languagechange", () => {
+    if (activeStatusKey) {
+      setStatus(t(activeStatusKey, ""), activeStatusIsError);
+    }
+  });
+
   function isValidEmail(value) {
     const v = value.trim();
     if (!v || v.length > 254) {
@@ -33,22 +57,19 @@
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    setStatus("");
+    clearStatus();
 
     const cfg = window.HUNNY_WAITLIST || {};
     const url = (cfg.supabaseUrl || "").replace(/\/$/, "");
     const key = cfg.supabaseAnonKey || "";
 
     if (!url || !key) {
-      setStatus(
-        "Waitlist is not connected yet. Add your Supabase URL and anon key in waitlist-config.js.",
-        true
-      );
+      setStatusKey("waitlist.status.notConnected", true);
       return;
     }
 
     if (hpInput && hpInput.value) {
-      setStatus("Thanks — you’re on the list.", false);
+      setStatusKey("waitlist.status.honeypot", false);
       form.reset();
       return;
     }
@@ -57,7 +78,7 @@
     const name = nameInput ? nameInput.value : "";
 
     if (!isValidEmail(email)) {
-      setStatus("Please enter a valid email address.", true);
+      setStatusKey("waitlist.status.invalidEmail", true);
       if (emailInput) {
         emailInput.focus();
       }
@@ -72,7 +93,7 @@
     if (submitBtn) {
       submitBtn.disabled = true;
     }
-    setStatus("Sending…", false);
+    setStatusKey("waitlist.status.sending", false);
 
     try {
       const res = await fetch(`${url}/rest/v1/waitlist_signups`, {
@@ -87,25 +108,20 @@
       });
 
       if (res.ok) {
-        setStatus("You’re on the list. We’ll be in touch.", false);
+        setStatusKey("waitlist.status.success", false);
         form.reset();
         return;
       }
 
       if (res.status === 409) {
-        setStatus("You’re already on the waitlist — thank you!", false);
+        setStatusKey("waitlist.status.already", false);
         return;
       }
 
       const text = await res.text().catch(() => "");
-      setStatus(
-        text
-          ? "Something went wrong. Please try again or email us."
-          : "Something went wrong. Please try again.",
-        true
-      );
+      setStatusKey(text ? "waitlist.status.errorWithEmail" : "waitlist.status.error", true);
     } catch {
-      setStatus("Network error. Check your connection and try again.", true);
+      setStatusKey("waitlist.status.network", true);
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;

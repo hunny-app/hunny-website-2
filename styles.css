@@ -43,6 +43,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 1rem);
   font-size: 118.75%;
   background-color: var(--cream);
 }
@@ -182,7 +183,7 @@ html[lang="zh-Hant"] .btn {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 2000;
   height: var(--header-h);
   display: flex;
   align-items: center;
@@ -2160,10 +2161,12 @@ details[open] > .faq-summary::after {
     position: fixed;
     top: var(--header-h);
     left: 0;
-    bottom: 0;
-    z-index: 1001;
+    bottom: auto;
+    z-index: 1999;
     width: min(84vw, 21rem);
     max-width: 21rem;
+    height: calc(100vh - var(--header-h));
+    height: calc(100dvh - var(--header-h));
     padding: 1rem 1rem 1.5rem;
     display: flex;
     flex-direction: column;
@@ -2219,7 +2222,7 @@ details[open] > .faq-summary::after {
   .nav-overlay {
     display: block;
     top: var(--header-h);
-    z-index: 997;
+    z-index: 1998;
   }
 
   body.nav-open {

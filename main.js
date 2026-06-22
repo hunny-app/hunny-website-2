@@ -34,6 +34,11 @@
       "home.feature.topicBody":
         "Get simple suggestions that help you ask better than “How was your day?”",
       "home.feature.topicAlt": "Hunny AI chat screen suggesting thoughtful family conversation prompts.",
+      "home.play.eyebrow": "Play Together",
+      "home.play.title": "Small ways to play, big ways to stay close.",
+      "home.play.drawTogether": "Draw Together",
+      "home.play.loveNotes": "Love Notes",
+      "home.play.snapGame": "Snap Game",
       "home.trust.eyebrow": "Trust",
       "home.trust.title": "Built for trust, not surveillance.",
       "home.trust.noCameras": "No cameras",
@@ -117,6 +122,11 @@
       "home.feature.topicBody":
         "Hunny 會整理出簡單貼心的提問建議，幫你問得比「今天過得怎麼樣？」更深入。",
       "home.feature.topicAlt": "Hunny AI 對話畫面，提供貼心的家庭對話建議。",
+      "home.play.eyebrow": "一起玩，心更近",
+      "home.play.title": "就算不在身邊，也能一起玩、一起分享。",
+      "home.play.drawTogether": "一起畫畫",
+      "home.play.loveNotes": "愛心留言",
+      "home.play.snapGame": "Snap Game",
       "home.trust.eyebrow": "信任",
       "home.trust.title": "為信任而設計，不為監視而生。",
       "home.trust.noCameras": "不使用鏡頭",

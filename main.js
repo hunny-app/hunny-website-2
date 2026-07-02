@@ -21,6 +21,10 @@
       "home.hero.title": "Stay Close to the Small Moments, Even During Work",
       "home.hero.description":
         "During busy or OT nights, Hunny talks with your child and shares quick updates so you don’t miss the little moments",
+      "home.hero.appStoreKicker": "Download on the",
+      "home.hero.appStoreName": "App Store",
+      "home.hero.playStoreKicker": "GET IT ON",
+      "home.hero.playStoreName": "Google Play",
       "home.highlightsLabel": "Product highlights",
       "home.feature.eyebrow": "What Hunny Does",
       "home.feature.boardTitle": "A simple way to stay close to their day.",
@@ -109,6 +113,10 @@
       "home.hero.title": "就算忙於工作，也不錯過孩子的小時刻",
       "home.hero.description":
         "在忙碌或加班的晚上，Hunny 會陪孩子聊天，並傳送簡短更新給你，讓你不會錯過那些細微卻重要的小時刻。",
+      "home.hero.appStoreKicker": "Download on the",
+      "home.hero.appStoreName": "App Store",
+      "home.hero.playStoreKicker": "GET IT ON",
+      "home.hero.playStoreName": "Google Play",
       "home.highlightsLabel": "產品亮點",
       "home.feature.eyebrow": "Hunny 能做什麼",
       "home.feature.boardTitle": "用簡單的方式，陪你貼近孩子的一天。",
@@ -435,6 +443,83 @@
       io.observe(el);
     });
   }
+
+  function initAutoScroller(scroller) {
+    if (!scroller || reduced) return;
+
+    var items = Array.prototype.slice.call(scroller.children);
+    if (items.length < 2) return;
+
+    var paused = false;
+    var resumeTimer = 0;
+
+    function canScroll() {
+      return scroller.scrollWidth - scroller.clientWidth > 8;
+    }
+
+    function getPositions() {
+      var base = items[0].offsetLeft;
+      return items.map(function (item) {
+        return item.offsetLeft - base;
+      });
+    }
+
+    function getCurrentIndex(positions) {
+      var current = scroller.scrollLeft;
+      var bestIndex = 0;
+      var bestDistance = Infinity;
+      positions.forEach(function (left, index) {
+        var distance = Math.abs(current - left);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestIndex = index;
+        }
+      });
+      return bestIndex;
+    }
+
+    function pauseTemporarily(delay) {
+      paused = true;
+      window.clearTimeout(resumeTimer);
+      resumeTimer = window.setTimeout(function () {
+        paused = false;
+      }, delay || 2600);
+    }
+
+    ["pointerdown", "touchstart", "wheel", "focusin"].forEach(function (eventName) {
+      scroller.addEventListener(eventName, function () {
+        pauseTemporarily(3200);
+      }, { passive: true });
+    });
+
+    scroller.addEventListener("mouseenter", function () {
+      paused = true;
+    });
+
+    scroller.addEventListener("mouseleave", function () {
+      pauseTemporarily(900);
+    });
+
+    window.setInterval(function () {
+      if (paused || !canScroll() || document.hidden) return;
+
+      var positions = getPositions();
+      var currentIndex = getCurrentIndex(positions);
+      var nextIndex = (currentIndex + 1) % positions.length;
+      var maxLeft = scroller.scrollWidth - scroller.clientWidth;
+      var nextLeft = nextIndex === 0 ? 0 : Math.min(positions[nextIndex], maxLeft);
+
+      scroller.scrollTo({
+        left: nextLeft,
+        behavior: "smooth",
+      });
+    }, 3300);
+  }
+
+  window.setTimeout(function () {
+    initAutoScroller(document.querySelector(".feature-board__scene"));
+    initAutoScroller(document.querySelector(".connection-play__grid"));
+  }, 700);
 
   var emailWrap = document.querySelector(".contact-card-email-wrap");
   if (emailWrap) {

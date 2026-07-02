@@ -384,12 +384,15 @@
     });
   }
 
-  function initAutoScroller(scroller) {
+  function initAutoScroller(scroller, options) {
     if (!scroller || reduced) return;
 
     var items = Array.prototype.slice.call(scroller.children);
     if (items.length < 2) return;
 
+    var settings = options || {};
+    var intervalDelay = settings.intervalDelay || 5200;
+    var startDelay = settings.startDelay || 0;
     var paused = false;
     var resumeTimer = 0;
 
@@ -440,7 +443,7 @@
       pauseTemporarily(900);
     });
 
-    window.setInterval(function () {
+    function scrollNext() {
       if (paused || !canScroll() || document.hidden) return;
 
       var positions = getPositions();
@@ -453,12 +456,23 @@
         left: nextLeft,
         behavior: "smooth",
       });
-    }, 3300);
+    }
+
+    window.setTimeout(function () {
+      scrollNext();
+      window.setInterval(scrollNext, intervalDelay);
+    }, startDelay);
   }
 
   window.setTimeout(function () {
-    initAutoScroller(document.querySelector(".feature-board__scene"));
-    initAutoScroller(document.querySelector(".connection-play__grid"));
+    initAutoScroller(document.querySelector(".feature-board__scene"), {
+      startDelay: 7200,
+      intervalDelay: 5600,
+    });
+    initAutoScroller(document.querySelector(".connection-play__grid"), {
+      startDelay: 7200,
+      intervalDelay: 5600,
+    });
   }, 700);
 
   function initHeroVideoLoop() {

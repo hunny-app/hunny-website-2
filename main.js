@@ -58,7 +58,6 @@
         "Time is precious. Meaningful connection matters more than ever — Hunny helps parents ask better ones.",
       "contact.eyebrow": "Get in touch",
       "contact.title": "Contact us",
-      "contact.lead": "Follow us or send a message — we’d love to hear from you.",
       "contact.email": "Email",
       "contact.copy": "Copy",
       "contact.copied": "Copied!",
@@ -150,7 +149,6 @@
         "時間很珍貴。有意義的連結比以往更重要，Hunny 幫助父母問出更好的問題。",
       "contact.eyebrow": "聯絡我們",
       "contact.title": "聯絡我們",
-      "contact.lead": "歡迎追蹤我們，或直接傳訊息給我們。我們很想聽聽你的想法。",
       "contact.email": "電郵",
       "contact.copy": "複製",
       "contact.copied": "已複製",
@@ -520,6 +518,87 @@
     initAutoScroller(document.querySelector(".feature-board__scene"));
     initAutoScroller(document.querySelector(".connection-play__grid"));
   }, 700);
+
+  function initHeroVideoLoop() {
+    var visual = document.querySelector(".hero-visual");
+    if (!visual) return;
+
+    var videos = Array.prototype.slice.call(visual.querySelectorAll(".hero-video"));
+    if (videos.length < 2) return;
+
+    var activeIndex = 0;
+    var swapping = false;
+    var fadeMs = 550;
+    var leadSeconds = 0.62;
+
+    videos.forEach(function (video, index) {
+      video.muted = true;
+      video.playsInline = true;
+      video.loop = false;
+      video.currentTime = 0;
+      if (index !== activeIndex) video.pause();
+    });
+
+    function playVideo(video) {
+      var playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(function () {});
+      }
+    }
+
+    function activate(index) {
+      videos.forEach(function (video, videoIndex) {
+        video.classList.toggle("hero-video--primary", videoIndex === index);
+        video.classList.toggle("hero-video--secondary", videoIndex !== index);
+      });
+    }
+
+    function swapVideos() {
+      if (swapping) return;
+      swapping = true;
+
+      var current = videos[activeIndex];
+      var nextIndex = activeIndex === 0 ? 1 : 0;
+      var next = videos[nextIndex];
+
+      try {
+        next.currentTime = 0;
+      } catch (error) {}
+      playVideo(next);
+      visual.classList.add("is-crossfading");
+
+      window.setTimeout(function () {
+        current.pause();
+        try {
+          current.currentTime = 0;
+        } catch (error) {}
+
+        activeIndex = nextIndex;
+        activate(activeIndex);
+        visual.classList.remove("is-crossfading");
+        swapping = false;
+      }, fadeMs);
+    }
+
+    videos.forEach(function (video) {
+      video.addEventListener("timeupdate", function () {
+        if (!Number.isFinite(video.duration) || video.duration <= 0) return;
+        if (video !== videos[activeIndex]) return;
+        if (video.duration - video.currentTime <= leadSeconds) {
+          swapVideos();
+        }
+      });
+
+      video.addEventListener("ended", function () {
+        if (video === videos[activeIndex]) swapVideos();
+      });
+    });
+
+    activate(activeIndex);
+    playVideo(videos[activeIndex]);
+  }
+
+  initHeroVideoLoop();
 
   var emailWrap = document.querySelector(".contact-card-email-wrap");
   if (emailWrap) {

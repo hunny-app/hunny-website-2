@@ -629,8 +629,32 @@ html[lang="zh-Hant"] .btn {
 .hero-visual {
   position: relative;
   justify-self: end;
-  width: min(100%, 520px);
-  min-height: clamp(400px, 48vw, 560px);
+  width: min(100%, 500px);
+  aspect-ratio: 9 / 12;
+  overflow: hidden;
+  border-radius: clamp(1.75rem, 4vw, 2.6rem);
+  background: rgb(var(--sand-rgb) / 0.42);
+  box-shadow: 0 26px 68px rgba(23, 64, 102, 0.16);
+}
+
+.hero-video {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 1;
+  transition: opacity 0.55s ease;
+}
+
+.hero-video--secondary {
+  opacity: 0;
+}
+
+.hero-visual.is-crossfading .hero-video--secondary {
+  opacity: 1;
 }
 
 .hero-cta {
@@ -835,7 +859,6 @@ html[lang="zh-Hant"] .btn {
   .hero-visual {
     justify-self: center;
     width: min(100%, 360px);
-    min-height: clamp(430px, 66vw, 560px);
   }
 
   .hero-mascot--primary {
@@ -855,7 +878,6 @@ html[lang="zh-Hant"] .btn {
 
   .hero-visual {
     width: min(100%, 390px);
-    min-height: clamp(450px, 104vw, 610px);
   }
 
   .hero-mascot--primary {
@@ -1110,7 +1132,7 @@ html[lang="zh-Hant"] .btn {
 /* Shared play */
 .connection-play {
   width: min(700px, 100%);
-  margin: clamp(3.75rem, 7vw, 5.5rem) auto 0;
+  margin: clamp(5.5rem, 10vw, 8rem) auto 0;
 }
 
 .connection-play__intro {
@@ -1417,7 +1439,7 @@ html[lang="zh-Hant"] .btn {
 
   .connection-play {
     width: min(100%, 300px);
-    margin-top: 3.25rem;
+    margin-top: 4.75rem;
   }
 
   .connection-play__grid {

@@ -135,16 +135,21 @@
           </div>
 
           <div class="hero-visual" aria-hidden="true">
-            <div class="hero-mascot hero-mascot--primary">
-              <img
-                class="hero-bunny"
-                src="Assets/bunny%20wave.png"
-                alt=""
-                width="318"
-                height="469"
-                decoding="async"
-              />
-            </div>
+            <video
+              class="hero-video hero-video--primary"
+              src="Assets/hero-loop.mp4"
+              autoplay
+              muted
+              playsinline
+              preload="metadata"
+            ></video>
+            <video
+              class="hero-video hero-video--secondary"
+              src="Assets/hero-loop.mp4"
+              muted
+              playsinline
+              preload="metadata"
+            ></video>
           </div>
         </div>
       </section>
@@ -346,9 +351,6 @@
       <section class="contact-section reveal-on-scroll" id="contact" aria-labelledby="contact-heading">
         <div class="contact-section__inner">
           <h2 id="contact-heading" class="contact-section__title" data-i18n="contact.title">Contact us</h2>
-          <p class="contact-section__lead" data-i18n="contact.lead">
-            Follow us or send a message — we’d love to hear from you.
-          </p>
           <ul class="contact-cards">
             <li>
               <a

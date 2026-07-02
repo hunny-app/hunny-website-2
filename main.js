@@ -6,13 +6,10 @@
   var translations = {
     en: {
       "meta.homeTitle": "Hunny — World’s first AI family companion",
-      "meta.waitlistTitle": "Join the waitlist — Hunny",
       "brand.home": "Hunny home",
       "nav.primary": "Primary",
       "nav.home": "Home",
       "nav.contact": "Contact us",
-      "nav.waitlist": "Waitlist",
-      "nav.joinWaitlist": "Join the waitlist",
       "nav.openMenu": "Open navigation menu",
       "nav.closeMenu": "Close navigation menu",
       "language.label": "Language",
@@ -71,39 +68,13 @@
       "footer.resources": "Resources",
       "footer.docs": "Docs",
       "footer.tagline": "Hunny. Sweet intelligence, built for you.",
-      "waitlist.kicker": "Early access",
-      "waitlist.title": "Join the waitlist",
-      "waitlist.lead":
-        "Get early access and Hunny updates. Add your email below — we only use it for Hunny-related news.",
-      "waitlist.emailPlaceholder": "you@example.com",
-      "waitlist.name": "Name",
-      "waitlist.optional": "(optional)",
-      "waitlist.namePlaceholder": "How we should address you",
-      "waitlist.leaveBlank": "Leave blank",
-      "waitlist.submit": "Join the waitlist",
-      "waitlist.privacy":
-        "We store signups in a secure database and only use your email for Hunny-related updates. We don’t sell addresses.",
-      "waitlist.back": "← Back to home",
-      "waitlist.status.notConnected":
-        "Waitlist is not connected yet. Add your Supabase URL and anon key in waitlist-config.js.",
-      "waitlist.status.honeypot": "Thanks — you’re on the list.",
-      "waitlist.status.invalidEmail": "Please enter a valid email address.",
-      "waitlist.status.sending": "Sending…",
-      "waitlist.status.success": "You’re on the list. We’ll be in touch.",
-      "waitlist.status.already": "You’re already on the waitlist — thank you!",
-      "waitlist.status.errorWithEmail": "Something went wrong. Please try again or email us.",
-      "waitlist.status.error": "Something went wrong. Please try again.",
-      "waitlist.status.network": "Network error. Check your connection and try again.",
     },
     "zh-Hant": {
       "meta.homeTitle": "Hunny — 全球首個 AI 家庭陪伴夥伴",
-      "meta.waitlistTitle": "加入 Hunny 等候名單",
       "brand.home": "Hunny 首頁",
       "nav.primary": "主要導覽",
       "nav.home": "首頁",
       "nav.contact": "聯絡我們",
-      "nav.waitlist": "等候名單",
-      "nav.joinWaitlist": "加入等候名單",
       "nav.openMenu": "開啟導覽選單",
       "nav.closeMenu": "關閉導覽選單",
       "language.label": "語言",
@@ -162,29 +133,6 @@
       "footer.resources": "資源",
       "footer.docs": "文件",
       "footer.tagline": "Hunny。為你而生的溫柔智慧。",
-      "waitlist.kicker": "搶先體驗",
-      "waitlist.title": "加入等候名單",
-      "waitlist.lead":
-        "加入等候名單，搶先體驗 Hunny，並接收最新消息。你的電郵只會用於 Hunny 相關通知。",
-      "waitlist.emailPlaceholder": "you@example.com",
-      "waitlist.name": "稱呼",
-      "waitlist.optional": "（選填）",
-      "waitlist.namePlaceholder": "我們該怎麼稱呼你？",
-      "waitlist.leaveBlank": "請留空",
-      "waitlist.submit": "加入等候名單",
-      "waitlist.privacy":
-        "你的資料會安全保存於資料庫中，我們只會透過電郵向你發送 Hunny 相關更新，不會出售或分享你的電郵地址。",
-      "waitlist.back": "← 回到首頁",
-      "waitlist.status.notConnected":
-        "等候名單功能尚未連接。請在 waitlist-config.js 填入 Supabase URL 和 anon key。",
-      "waitlist.status.honeypot": "謝謝，你已成功加入等候名單。",
-      "waitlist.status.invalidEmail": "請輸入有效的電郵地址。",
-      "waitlist.status.sending": "傳送中…",
-      "waitlist.status.success": "你已成功加入等候名單，我們會在有消息時通知你。",
-      "waitlist.status.already": "你已經在等候名單中了，謝謝你的支持！",
-      "waitlist.status.errorWithEmail": "發生錯誤。請再試一次，或直接電郵聯絡我們。",
-      "waitlist.status.error": "發生錯誤。請再試一次。",
-      "waitlist.status.network": "網絡錯誤。請檢查連線後再試一次。",
     },
   };
 
@@ -338,12 +286,6 @@
     });
 
     var path = window.location.pathname || "";
-    if (path.indexOf("waitlist.html") !== -1) {
-      var w = nav.querySelector('a[href="waitlist.html"]');
-      if (w) w.setAttribute("aria-current", "page");
-      return;
-    }
-
     var contactLink = nav.querySelector('a[href="#contact"]');
     if (!contactLink) return;
 

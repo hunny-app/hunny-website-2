@@ -107,7 +107,11 @@
                 caregiver relationship labels, profile settings, language settings, device pairing
                 data, child session activity, conversation transcripts, voice transcripts, drawings,
                 Snap Game photos when used, caregiver notes, tiny moments, subscription status, and
-                caregiver or paired-device reports about specific AI responses.
+                caregiver or paired-device reports about specific AI responses. For signed-in
+                caregivers, Hunny may also record feature or button interactions, screens viewed,
+                and time spent on a screen to understand reliability and improve the caregiver
+                experience. Hunny does not collect this general product-analytics stream from child
+                mode.
               </p>
               <p>
                 Hunny collects this information when caregivers create or manage an account or child
@@ -122,21 +126,28 @@
               <h2>AI and Voice Features</h2>
               <p>
                 Hunny uses Microsoft Azure OpenAI Service to provide AI chat, speech-to-text,
-                safety processing, AI response reporting support, and caregiver-facing summaries.
+                safety processing and caregiver-facing summaries.
                 Hunny uses Speechify to provide synthetic voice playback for certain AI replies.
                 Hunny may send child chat messages, recent conversation context, child profile
                 details such as nickname, age band, caregiver relationship labels and language
                 settings, voice transcripts or a short audio recording when fallback transcription
-                is needed, AI response reports, and transcript or session context needed to
-                generate caregiver summaries to Microsoft Azure OpenAI Service. Hunny may send AI
+                is needed, and transcript or session context needed to generate caregiver summaries
+                to Microsoft Azure OpenAI Service. Hunny may send AI
                 reply text to Speechify for spoken playback, and that reply text may include child
                 conversation details contained in the reply.
               </p>
               <p>
+                Reports submitted about an AI response are stored in Hunny's Supabase safety review
+                queue for Hunny's review and are not sent to Microsoft Azure OpenAI Service or
+                Speechify. The report remains linked to the relevant stored conversation event so
+                Hunny can investigate the reported response.
+              </p>
+              <p>
                 Hunny does not send Snap Game camera photos to Microsoft Azure OpenAI Service or
                 Speechify in the current version. Hunny does not keep raw child audio as long-term
-                media history. Conversation transcripts may be stored so Hunny can support the child
-                experience and create caregiver-facing summaries.
+                media history. A fallback recording is processed for transcription and deleted from
+                the device after the request finishes. Conversation transcripts may be stored so
+                Hunny can support the child experience and create caregiver-facing summaries.
               </p>
               <p>
                 Before Hunny sends a child's personal information to Microsoft Azure OpenAI Service
@@ -168,26 +179,42 @@
                 Hunny uses information to provide caregiver login, child-device pairing, child
                 profile personalization, AI companion features, family activities, caregiver
                 summaries, subscription access, AI response review, security, support, and account
-                deletion. Hunny also uses limited operational information to maintain reliability,
-                prevent abuse, debug problems, enforce access controls, and comply with legal
-                obligations.
+                deletion. Caregiver product interactions are used to understand feature use and
+                improve the caregiver experience. Hunny also uses limited operational information,
+                including pairing and device-delivery state, to maintain reliability, prevent abuse,
+                debug problems, enforce access controls, and comply with legal obligations.
               </p>
             </section>
 
             <section class="legal-section">
               <h2>Service Providers</h2>
               <p>
-                Hunny may use service providers such as hosting/database providers, authentication
-                providers, Microsoft Azure OpenAI Service for AI, speech-to-text, safety, and
-                summary processing, Speechify for synthetic voice generation, RevenueCat, Apple App
-                Store, Google Play, and operational infrastructure providers. These providers may
-                process limited data needed to provide the service, maintain security and
-                reliability, prevent abuse, process subscriptions, or comply with law.
+                Hunny uses Supabase for hosting, database, authentication, storage, and Edge
+                Functions; Microsoft Azure OpenAI Service for AI, speech-to-text, safety, and summary
+                processing; Speechify for synthetic voice generation; Expo notification
+                infrastructure for delivery of private family notifications; RevenueCat for
+                subscription entitlement syncing; and Apple App Store or Google Play for platform
+                services and payments. These providers may process limited data needed to provide
+                the service, maintain security and reliability, prevent abuse, process subscriptions,
+                or comply with law.
               </p>
               <p>
                 Hunny requires service providers that process personal information for Hunny to
                 provide the same or equal protection described in this policy and to process
                 personal information only as needed to provide their services to Hunny.
+              </p>
+            </section>
+
+            <section class="legal-section">
+              <h2>Notifications and Device Permissions</h2>
+              <p>
+                Hunny asks for notification permission only after an adult chooses to enable family
+                notifications. If enabled, Hunny and Expo may process an Expo push token, install
+                identifier, platform and app-version details, device role, and notification delivery
+                state to deliver and invalidate private household notifications. Camera and
+                microphone permission prompts in child mode are placed behind a grown-up check.
+                Camera access is used for Snap Game; microphone access is used for voice chat and
+                transcription. Permission can be changed later in the device Settings app.
               </p>
             </section>
 
@@ -214,6 +241,15 @@
                 <a href="https://www.instagram.com/hunny.kids.global/" target="_blank" rel="noopener noreferrer"
                   >@hunny.kids.global</a
                 >.
+              </p>
+              <p>
+                In-app account deletion permanently deletes the caregiver authentication account.
+                If the caregiver is the household's only active caregiver, Hunny also deletes that
+                household and its associated child data. If the caregiver owns a shared household
+                and another active caregiver remains, ownership transfers to the longest-standing
+                active caregiver and the shared household remains available to them. A non-owner's
+                deletion does not change the existing owner. App Store subscriptions must be
+                managed separately in the user's Apple ID subscription settings.
               </p>
             </section>
           </div>

@@ -566,6 +566,20 @@ html[lang="zh-Hant"] .btn {
   user-select: none;
 }
 
+.store-badge--link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.store-badge--link:hover {
+  transform: translateY(-1px);
+}
+
+.store-badge--link:focus-visible {
+  outline: 3px solid rgba(243, 156, 18, 0.55);
+  outline-offset: 3px;
+}
+
 .store-badge__icon {
   display: inline-grid;
   flex: 0 0 auto;

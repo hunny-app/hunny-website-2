@@ -57,13 +57,43 @@
             class="download-button"
             href="https://apps.apple.com/ca/app/hunny-parent-child-bonding/id6784933624"
             aria-label="Get Hunny: Parent-Child Bonding on the App Store"
+            data-app-store-link
           >
             <span class="download-button__kicker">Download on the</span>
             <span class="download-button__label">App Store</span>
           </a>
-          <p class="download-note">Made for parents who want to feel more connected.</p>
+          <p class="download-note">
+            If Instagram asks, choose <strong>Open in external browser</strong>.
+          </p>
         </div>
       </section>
     </main>
+
+    <script>
+      (function () {
+        var appStoreButton = document.querySelector("[data-app-store-link]");
+        if (!appStoreButton) return;
+
+        var appStoreAppUrl = "itms-apps://itunes.apple.com/app/id6784933624";
+        var appStoreWebUrl = appStoreButton.href;
+
+        appStoreButton.addEventListener("click", function (event) {
+          event.preventDefault();
+
+          var leftPage = false;
+          var markPageLeft = function () {
+            if (document.hidden) leftPage = true;
+          };
+
+          document.addEventListener("visibilitychange", markPageLeft);
+          window.location.href = appStoreAppUrl;
+
+          window.setTimeout(function () {
+            document.removeEventListener("visibilitychange", markPageLeft);
+            if (!leftPage) window.location.href = appStoreWebUrl;
+          }, 1200);
+        });
+      })();
+    </script>
   </body>
 </html>

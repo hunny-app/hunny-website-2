@@ -169,6 +169,11 @@ h1 {
   line-height: 1.4;
 }
 
+.download-note strong {
+  color: #6e594c;
+  font-weight: 800;
+}
+
 @media (min-width: 40rem) {
   .download-card {
     min-height: min(52rem, calc(100dvh - 3rem));

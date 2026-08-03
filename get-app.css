@@ -174,6 +174,37 @@ h1 {
   font-weight: 800;
 }
 
+.handoff-page {
+  display: grid;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: max(1.25rem, env(safe-area-inset-top)) 1.25rem max(1.25rem, env(safe-area-inset-bottom));
+  place-items: center;
+}
+
+.handoff-card {
+  width: min(100%, 26rem);
+  text-align: center;
+}
+
+.handoff-logo {
+  display: block;
+  width: 7.5rem;
+  height: 7.5rem;
+  margin: 0 auto 1.25rem;
+  object-fit: contain;
+}
+
+.handoff-description {
+  margin: 1rem auto 1.5rem;
+  color: #6b5b50;
+  line-height: 1.5;
+}
+
+.handoff-button {
+  min-height: 4.4rem;
+}
+
 @media (min-width: 40rem) {
   .download-card {
     min-height: min(52rem, calc(100dvh - 3rem));

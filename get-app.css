@@ -127,6 +127,20 @@ h1 {
   place-content: center;
 }
 
+.download-button + .download-button {
+  margin-top: 0.75rem;
+}
+
+.download-button--play {
+  background: #d96d16;
+  box-shadow: 0 1rem 2.2rem rgba(184, 82, 11, 0.2);
+}
+
+.download-button.download-button--play:hover {
+  background: #bd5910;
+  box-shadow: 0 1.2rem 2.5rem rgba(184, 82, 11, 0.24);
+}
+
 .download-button:hover {
   background: #3a2921;
   box-shadow: 0 1.2rem 2.5rem rgba(49, 31, 20, 0.24);

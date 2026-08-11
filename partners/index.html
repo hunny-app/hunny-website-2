@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Share Hunny with parents and earn for verified paying families." />
+    <title>Hunny Partner Program</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero"><a class="brand" href="/">Hunny</a><h1 id="headline">Become a Hunny Partner</h1><p id="subhead">Help parents create closer moments with their children—and earn as Hunny grows.</p></section>
+      <section id="referral-card" class="card hidden">
+        <h2>Get 50% off your first month</h2><p>Download Hunny, create a parent account, then enter this code in Settings before subscribing to Plus Monthly.</p><strong id="referral-code" class="code"></strong>
+        <div class="actions"><a class="button" href="https://apps.apple.com/app/id6784933624">Get Hunny for iPhone</a><a class="button secondary" href="https://play.google.com/store/apps/details?id=com.hunnychild.app">Get Hunny for Android</a></div>
+      </section>
+      <section id="program">
+        <div class="reward-grid"><article><strong>CA$2</strong><span>for every verified paying family</span></article><article><strong>CA$10</strong><span>minimum payout</span></article><article><strong>1 free month</strong><span>after your first paid referral, then every 10 more</span></article></div>
+        <section id="apply-card" class="card">
+          <h2>Join</h2>
+          <form id="apply-form">
+            <label>Name<input name="displayName" autocomplete="name" maxlength="80" required /></label>
+            <label>Email<input name="email" type="email" autocomplete="email" maxlength="254" required /></label>
+            <label>Social profile or website <span>(optional)</span><input name="profileUrl" type="url" inputmode="url" placeholder="https://" maxlength="500" /></label>
+            <label class="honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off" /></label>
+            <label class="check"><input name="acceptTerms" type="checkbox" required /> <span>I agree to honest promotion and the <a href="./terms.html" target="_blank" rel="noopener">Partner Program terms</a>.</span></label>
+            <button type="submit">Create my partner link</button><p id="apply-status" class="status" role="status"></p>
+          </form>
+        </section>
+        <section id="dashboard-card" class="card hidden">
+          <div class="card-title-row"><h2>Your dashboard</h2><button id="forget" class="text-button" type="button">Sign out</button></div>
+          <p>Your code</p><strong id="partner-code" class="code"></strong>
+          <p>Bookmark this private page to return to your dashboard.</p>
+          <label>Partner link<div class="copy-row"><input id="partner-link" readonly /><button id="copy-link" type="button">Copy</button></div></label>
+          <div class="stats"><article><strong id="clicks">0</strong><span>Clicks</span></article><article><strong id="joined">0</strong><span>Joined</span></article><article><strong id="paid">0</strong><span>Paid</span></article><article><strong id="pending">CA$0.00</strong><span>Pending</span></article></div>
+          <p class="earnings"><strong id="earnings">CA$0.00</strong> available</p><button id="payout" type="button" disabled>Request payout</button><button id="refresh" class="secondary" type="button">Refresh</button><p id="dashboard-status" class="status" role="status"></p>
+        </section>
+        <p class="fine-print">No follower minimum. Commissions are based on verified subscriptions and may be voided for refunds, fraud, or self-referrals.</p>
+      </section>
+    </main>
+    <script src="./app.js" defer></script>
+  </body>
+</html>

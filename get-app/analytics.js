@@ -63,7 +63,12 @@
   "use strict";
 
   let analyticsClient = posthog;
+  let redirectStarted = false;
   const projectToken = "phc_B4PXaBoC3wiRgRKkqCokDtQYrKWxwaA2FNSFftrSaftb";
+  const storeUrls = {
+    app_store: "https://apps.apple.com/app/id6784933624",
+    google_play: "https://play.google.com/store/apps/details?id=com.hunnychild.app&pli=1",
+  };
   const allowedCampaignParameters = [
     "utm_source",
     "utm_medium",
@@ -126,6 +131,38 @@
     return event;
   }
 
+  function detectedStore() {
+    const userAgent = navigator.userAgent || "";
+    const isAndroid = /Android/i.test(userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
+    const isIPadOS = navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
+
+    if (isAndroid) return "google_play";
+    if (isIOS || isIPadOS) return "app_store";
+    return "";
+  }
+
+  const automaticStore = detectedStore();
+
+  function redirectToStore(store) {
+    if (!store || redirectStarted) return;
+    redirectStarted = true;
+
+    analyticsClient.capture(
+      "get_app_store_click",
+      {
+        ...campaignProperties(),
+        store: store,
+        method: "automatic_redirect",
+      },
+      { transport: "sendBeacon", send_instantly: true },
+    );
+
+    window.setTimeout(function () {
+      window.location.replace(storeUrls[store]);
+    }, 100);
+  }
+
   posthog.init(projectToken, {
     api_host: "https://us.i.posthog.com",
     ui_host: "https://us.posthog.com",
@@ -144,8 +181,15 @@
     loaded: function (analytics) {
       analyticsClient = analytics;
       analytics.capture("get_app_page_view", campaignProperties());
+      redirectToStore(automaticStore);
     },
   });
+
+  if (automaticStore) {
+    window.setTimeout(function () {
+      redirectToStore(automaticStore);
+    }, 900);
+  }
 
   document.addEventListener("click", function (event) {
     const storeLink = event.target.closest("[data-analytics-store]");
@@ -154,6 +198,7 @@
     analyticsClient.capture("get_app_store_click", {
       ...campaignProperties(),
       store: storeLink.dataset.analyticsStore,
+      method: "manual_fallback",
     });
   });
 })(document, window.posthog);
